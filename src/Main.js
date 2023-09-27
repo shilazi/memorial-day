@@ -16,7 +16,7 @@ class Main extends Component {
     componentDidMount() {
         this.print();
         setInterval(() => {
-          this.time(2016, 4, 23) // 你们的纪念日
+          this.time(2019, 8, 30) // 你们的纪念日
         }, 1000)
 
         let delay = 8000; // 延迟播放的时间
