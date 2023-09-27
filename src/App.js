@@ -1,29 +1,32 @@
 import React, { Component } from 'react';
 import './App.css';
-import iconurl from './icon/爱心.png'
+import iconurl from './icon/love.png'
+import tipsurl from './icon/tips.png'
 import Main from './Main'
+import { appResize as resize } from './resize'
+
 class App extends Component {
   state = {
     class: 'bounceInLeft',
     show: false,
-
   };
 
   render() {
-
     const main = () => {
       if (this.state.show)
         return <Main />
     }
     return (
-      <div>
-        <div className={"envelope animated " + this.state.class}>
-          <div className="triangle-down"></div>
-          <img className="heart" src={iconurl} onClick={() => {
+      <div id="app">
+        <div style={resize('envelope')} className={"envelope animated " + this.state.class}>
+          <div className="text">
+            <img alt='tips' style={resize('tips')}  src={tipsurl} />
+          </div>
+          <div style={resize('down')} className="triangle-down"></div>
+          <img style={resize('heart')} className="heart" alt='mail' src={iconurl} onClick={() => {
             this.setState({ class: 'bounceOutRight', show: true })
           }} />
-          <div className="triangle-up"></div>
-          <div className="text">你收到一封信，点击查收！</div>
+          <div style={resize('up')} className="triangle-up"></div>
         </div>
         {main()}
       </div>
